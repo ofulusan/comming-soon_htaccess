@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{TIME_YEAR}%{TIME_MON}%{TIME_DAY}%{TIME_HOUR}%{TIME_MIN} ">開始時間の設定"
+RewriteCond %{TIME_YEAR}%{TIME_MON}%{TIME_DAY}%{TIME_HOUR}%{TIME_MIN} "<終了時間の設定"
+RewriteCond %{REQUEST_URI} !=/comming-soon.html
+RewriteCond %{REMOTE_ADDR} !8.8.8.8
+
+RewriteRule ^.*$ - [R=503,L]
+</IfModule>
